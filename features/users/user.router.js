@@ -17,7 +17,7 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/signin", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { email, password } = req.body;
   const activeUser = await User.findOne({ email, password });
   if (activeUser) {
     res.send({ message: "Signin Successfull", activeUser });
