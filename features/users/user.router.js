@@ -20,7 +20,7 @@ app.post("/signin", async (req, res) => {
   const { email, password } = req.body;
   const activeUser = await User.findOne({ email, password });
   if (activeUser) {
-    res.send({ message: "Signin Successfull", activeUser });
+    res.send(activeUser);
   } else {
     res.status(404).send("Invalid Credentials");
   }
